@@ -3,7 +3,7 @@
 # Lab 6.2, Promises and Error Handling
 
 ## Description
-In this lab [ ]
+In this lab asynchronous API calls are simulated to explore Promise's. Calls are resolved and rejected randomly in order to simulate errors and test how they handled.
 
 
 
