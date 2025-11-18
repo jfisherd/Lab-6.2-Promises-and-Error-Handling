@@ -18,7 +18,7 @@ export const fetchProductCatalog = (): Promise<{ id: number; name: string; price
     });
 };
 
-const fetchProductReviews = (): Promise<{ id: number; name: string; productReviews: review | review[] }[]> => {
+export const fetchProductReviews = (): Promise<{ id: number; name: string; productReviews: review | review[] }[]> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (Math.random() < 0.8) {
@@ -32,7 +32,7 @@ const fetchProductReviews = (): Promise<{ id: number; name: string; productRevie
     });
 };
 
-const fetchSalesReport = (): Promise<{ id: number; name: string; totalSales: number, unitsSold: number, averagePrice: number }[]> => {
+export const fetchSalesReport = (): Promise<{ id: number; name: string; totalSales: number, unitsSold: number, averagePrice: number }[]> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (Math.random() < 0.8) {
@@ -47,8 +47,8 @@ const fetchSalesReport = (): Promise<{ id: number; name: string; totalSales: num
     });
 };
 
-fetchProductCatalog()
-.then(() => fetchProductReviews())
-.then(() => fetchSalesReport())
-.catch((error) => console.error(".catch() Flag. Error:", error))
-.finally(() => console.log(".finally() Flag"));
+// fetchProductCatalog()
+// .then(() => fetchProductReviews())
+// .then(() => fetchSalesReport())
+// .catch((error) => console.error(".catch() Flag. Error:", error))
+// .finally(() => console.log(".finally() Flag"));
