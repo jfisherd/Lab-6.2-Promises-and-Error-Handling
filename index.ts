@@ -1,4 +1,11 @@
-import { fetchProductCatalog } from './apiSimulator'
+import { fetchProductCatalog } from './apiSimulator.js'
 
-fetchProductCatalog()
+
+console.log(fetchProductCatalog)
+
+
+
+
+
+
 
