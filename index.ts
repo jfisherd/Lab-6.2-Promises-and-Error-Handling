@@ -1,8 +1,8 @@
-import type { fetchProductCatalog, fetchProductReviews, fetchSalesReport } from './apiSimulator.js'
+import { fetchProductCatalog, fetchProductReviews, fetchSalesReport } from './apiSimulator.js'
 
 
 // console.log(fetchProductCatalog)
-
+// let myNewFunction = fetchProductCatalog()
 
 fetchProductCatalog()
 .then(() => fetchProductReviews())
@@ -11,5 +11,15 @@ fetchProductCatalog()
 .finally(() => console.log(".finally() Flag"));
 
 
+// () => {
+// 	() => {} // a nested function	
+// 	return 
+// }
 
+// () => { // a higher order function
+// 	return () => {}
+// }
 
+// (() => {}) => { // a higher order function
+// 	return 
+// }
