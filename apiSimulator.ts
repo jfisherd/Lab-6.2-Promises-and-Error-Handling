@@ -3,6 +3,20 @@ interface review {
     replies?: review | review[]
 }
 
+class NetworkError extends Error {
+    constructor(message: string) {
+        super(message)
+        this.message = 'A network error has occurred'
+    }
+}
+
+class DataError extends Error {
+    constructor(message: string) {
+        super(message)
+        this.message = 'A data error has occurred'
+    }
+}
+
 export const fetchProductCatalog = (): Promise<{ id: number; name: string; price: number }[]> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -12,7 +26,7 @@ export const fetchProductCatalog = (): Promise<{ id: number; name: string; price
                     { id: 2, name: "Headphones", price: 200 },
                 ]);
             } else {
-                reject("Failed to fetch product catalog");
+                reject(DataError)
             }
         }, 1000);
     });
@@ -22,11 +36,13 @@ export const fetchProductReviews = (): Promise<{ id: number; name: string; produ
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (Math.random() < 0.8) {
-                resolve([{id: 1, name: "Laptop", productReviews: [{review: '10/10 :)', replies: {review: 'Glad you liked it:)'}}, {review: 'its Ok'} ,{review: 'its Ok'}]},
-                         {id: 2, name: "Headphones", productReviews: [{review: '1'},{review: '2'}]}    
-                ])           
+                resolve([{ id: 1, name: "Laptop", productReviews: [{ review: '10/10 :)', replies: { review: 'Glad you liked it:)' } }, { review: 'its Ok' }, { review: 'its Ok' }] },
+                         { id: 2, name: "Headphones", productReviews: [{ review: '1' }, { review: '2' }] },
+                         { id: 3, name: "Keyboards", productReviews: [{ review: '0/10, product is never in stock and I keep spilling coffee on mine!' }] }
+                ])
             } else {
-                reject(`Failed to fetch reviews for product ID ${{id: 3, name: "Keyboards", productReviews: [{review: '0/10, product is never in stock and I keep spilling coffee on mine!'}]}.id}, item does not exist`);
+                reject(NetworkError)
+                //  `Failed to fetch reviews for product ID ${{ id: 3, name: "Keyboards", productReviews: [{ review: '0/10, product is never in stock and I keep spilling coffee on mine!' }] }.id}, item does not exist`);
             }
         }, 1500);
     });
