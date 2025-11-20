@@ -14,7 +14,7 @@ To view use this lab, run index.js from /dist
 ## Reflection Questions
 > Why is it important to handle errors for each individual API call rather than just at the end of the promise chain?
 
-Errors handled separately will call their individual catch statements.
+Errors handled separately will call their individual catch statements. This can stop an error from causing another error, and narrows troubleshooting to the exact component which is broken.
 <br>
 
 > How does using custom error classes improve debugging and error identification?
