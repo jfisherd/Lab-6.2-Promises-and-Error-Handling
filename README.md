@@ -8,12 +8,12 @@ In this lab asynchronous API calls are simulated to explore Promise's. Calls are
 
 
 ## Running the program
-To view use this lab [ ]
+To view use this lab, run index.js from /dist
 <br>
 
 ## Reflection Questions
 > Why is it important to handle errors for each individual API call rather than just at the end of the promise chain?
-
+Errors handled separately will call their individual catch statements.
 
 <br>
 
